@@ -1,26 +1,13 @@
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:rest_api_flutter/utils/constants.dart';
 
-class ApiClient extends GetConnect implements GetxService {
-  late String token;
-  final String appBaseUrl;
-  late Map<String, String> _mainHeaders;
-
-  ApiClient({
-    required this.appBaseUrl,
-  }) {
-    baseUrl = appBaseUrl;
-    timeout = const Duration(seconds: 30);
-    token = "";
-    // how much time request should try keep asking server
-    _mainHeaders = {
-      'Content-type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer $token'
-    };
-  }
-
-  Future<Response> getData(String uri) async {
+class ApiClient {
+  Future<dynamic> getData(String endPoint) async {
     try {
-      Response response = await get(uri);
+      final response = (await http.get(
+          Uri.parse(AppConstants.BASE_URL + endPoint),
+          headers: AppConstants.mainHeaders));
       return response;
     } catch (e) {
       return Response(statusCode: 1, statusText: e.toString());

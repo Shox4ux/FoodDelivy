@@ -9,7 +9,7 @@ import 'icon_with_text.dart';
 
 class RatingBar extends StatelessWidget {
   final String bigText;
-  final String ratingUnit;
+  final int ratingUnit;
   final String commentText;
   final String distance;
   final String time;
@@ -50,7 +50,7 @@ class RatingBar extends StatelessWidget {
             ),
             Gap(AppLayout.getHeight(5)),
             SmallText(
-              text: ratingUnit,
+              text: ratingUnit.toString(),
             ),
             Gap(AppLayout.getHeight(20)),
             SmallText(text: commentText),

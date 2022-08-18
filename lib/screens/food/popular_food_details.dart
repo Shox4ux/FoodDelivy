@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:rest_api_flutter/screens/home/home_page.dart';
+import 'package:rest_api_flutter/screens/home/home_page_body.dart';
 import 'package:rest_api_flutter/utils/app_layout.dart';
 import 'package:rest_api_flutter/widgets/circle_icon.dart';
 import 'package:rest_api_flutter/widgets/expandable_text.dart';
 
 import '../../utils/styles.dart';
 import '../../widgets/big_text.dart';
-import '../../widgets/icon_with_text.dart';
 import '../../widgets/rating_bar.dart';
-import '../../widgets/small_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   const PopularFoodDetails({Key? key}) : super(key: key);
@@ -39,7 +40,11 @@ class PopularFoodDetails extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CircleIcon(icon: Icons.arrow_back_ios),
+                GestureDetector(
+                    onTap: () {
+                      Get.to(() => const HomePage());
+                    },
+                    child: CircleIcon(icon: Icons.arrow_back_ios)),
                 CircleIcon(icon: Icons.shopping_cart_outlined)
               ],
             ),
@@ -65,7 +70,7 @@ class PopularFoodDetails extends StatelessWidget {
                 children: [
                   const RatingBar(
                     bigText: "Delicious Dessert",
-                    ratingUnit: "5",
+                    ratingUnit: 5,
                     time: "25min",
                     distance: "1,6km",
                     level: "Normal",

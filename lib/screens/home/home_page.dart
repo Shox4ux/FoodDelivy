@@ -5,7 +5,7 @@ import 'package:rest_api_flutter/utils/styles.dart';
 import 'package:rest_api_flutter/widgets/big_text.dart';
 import 'package:rest_api_flutter/widgets/small_text.dart';
 
-import 'food_page_boby.dart';
+import 'home_page_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
           ),
           //this is for the body of the homePage
 
-          const Expanded(child: SingleChildScrollView(child: FoodPageBody()))
+          const Expanded(child: SingleChildScrollView(child: HomePageBody()))
         ],
       ),
     );
